@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let mapa = new Map();
+        let salida = false;
+        let nombre;
+        let pass;
+        while (!salida) {
+            switch (prompt("Dime que quieres hacer: \n1-Añadir nuevo\n2-Eliminar usuario\n3-Mostrar lista\n4-Salir")) {
+                case "1":
+                    nombre = prompt("Dime tu nombre", "Ana");
+                    pass = prompt("Dime tu contraseña");
+                    if (!mapa.has(nombre)) {
+                        mapa.set(nombre, pass);
+                        alert("Importado correctamente");
+                    } else {
+                        alert("Ya esta en el registro,seleccione otro nombre");
+                    }
+                    break;
+                case "2":
+                    let eliminar = prompt("Dime un nombre a eliminar", "Ana");
+                    if (mapa.has(nombre)) {
+                        mapa.delete(nombre);
+                        alert(nombre + " borrado");
+                    } else {
+                        alert("Ese valor no existe");
+                    }
+                    break;
+                case "3":
+                    let valores = "";
+                    /*for (var [nom, cont] of mapa) {
+                        valores += nom + " = " + cont + "\n";
+                    }*/
+                    for(const c of mapa.entries()){
+                        valores+= c+"\n";
+                    }
+                    alert(valores);
+                    break;
+                case "4":
+                    salida = true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
