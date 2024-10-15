@@ -30,3 +30,4 @@ let f6 = dato => {
     console.log(dato.split(" ").filter(e => contA.test(e)));
 }
 f6(frase);
+//LAURA PROBANDO A CAMBIAR COSAS DESDE VSCODE
