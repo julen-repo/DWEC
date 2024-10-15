@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let exprNombre = /^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+$/;
+        let exprApellido = /(?: [A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*/;
+        let exprEdad = /^\d{1,3}$/;
+        let exprEmail = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        let exprTelefono = /^[69]\d{8}$/;
+        let exprCentro = /^.{5,120}$/;
+        let exprCurso = /^\d{1,2}$/;
+        let exprObservaciones = /^.{1,120}$/;
+        let exprAnio = /^(199[5-9]|20[0-2][0-9]|202[0-4])$/;
+
+        function comprobar(titulo, dato, expr) {
+            if (expr.test(dato)) {
+                return true;
+            } else {
+                alert(titulo);
+                return false;
+            }
+        }
+        function alertasValidar(valor, defecto) {
+            do {
+                var nombre = prompt("Dime tu " + valor, defecto);
+            } while (!comprobar(valor + "incorrecto", nombre, exprNombre))
+        }
+        let array = ["Nombre", "Apellido", "Edad", "Email", "Telefono", "Centro", "Curso", "Observaciones", "Año"];
+        //array de valores por defecto y meter donde "a"
+
+        for (const element of array) {
+            alertasValidar(element, "a");
+        }
+    </script>
+</body>
+
+</html>

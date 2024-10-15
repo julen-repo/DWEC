@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widdiv=device-widdiv, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="enero">enero</div>
+    <div id="febrero">febrero</div>
+    <div id="marzo">marzo</div>
+    <div id="abril">abril</div>
+    <div id="mayo">mayo</div>
+    <div id="junio">junio</div>
+    <div id="julio">julio</div>
+    <div id="agosto">agosto</div>
+    <div id="septiembre">septiembre</div>
+    <div id="octubre">octubre</div>
+    <div id="noviembre">noviembre</div>
+    <div id="diciembre">diciembre</div>
+
+    <script>
+        let array = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+        for (let i = 0; i < 12; i++) {
+            //document.body.appendChild(document.createElement("div").setAttribute("id", array[i]));
+            document.getElementById(array[i]).style.top(Math.random(0,120));
+            document.getElementById(array[i]).style.left(Math.random(0,120));
+
+        }
+    </script>
+</body>
+
+</html>

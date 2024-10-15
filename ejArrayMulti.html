@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let texto = "";
+        let array = new Array();
+        let aux = 0;
+        array = [[1, 2, 3], [4, 5, 6], [7, 8, 9, 10], ["A", "B", "C"]];
+        array[1][1] = 20;
+        for (let i = 0; i < array.length; i++) {
+            texto = "";
+            for (const c of array[i]) {
+                texto = texto + String(c);
+            }
+            document.write("<p>", `${texto}`, "</p>");
+            if (array[i].length > aux) {
+                aux = array[i].length;
+            }
+        }
+        document.write("<p>", "Numero de filas: ", `${array.length}`, "</p>");
+        document.write("<p>", "Numero de columnas: ", `${aux}`, "</p>");
+        array.forEach(element => {
+            element.forEach(element2 => {
+                console.log(element2);
+            });
+        });
+        
+        let array6=new Array(100);
+        array6.fill(['a','b','c']);
+        array6.forEach(element => {
+            element.forEach(element2 => {
+                console.log(element2);
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="4px">
+        <tr>
+            <th>Nombre</th>
+            <th id="name"></th>
+        </tr>
+        <tr>
+        </tr>
+            <th>Primer Apellido</th>
+            <th id="apellido1"></th>
+        </tr>
+
+        <tr>
+        </tr>
+            <th>Segundo Apellido</th>
+            <th id="apellido2"></th>
+        </tr>
+        </tr>
+            <th>Fecha Nacimiento</th>
+            <th id="nacimiento"></th>
+        </tr>
+    </table>
+
+    <script>
+        let entrada = prompt("Introduce nombre, apellidos y fecha de nacimiento(dd/mm/yyyy) separado por comas");
+
+        let array = entrada.split(",");
+
+        document.getElementById('name').textContent = array[0];
+        document.getElementById('apellido1').textContent = array[1];
+        document.getElementById('apellido2').textContent = array[2];
+
+        try{
+            let fecha= array[3].split("/");
+            let nacimiento= new Date(fecha[2],fecha[1] - 1,fecha[0]);
+            if(nacimiento=="Invalid Date"){
+                throw "Fecha no valida";
+            }
+            document.getElementById('nacimiento').textContent = nacimiento.toUTCString();
+        }catch(error){
+            alert(error);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let cadena = "Esto es un ejercicio para probar cadenas."
+        let cadenaMayus = "";
+        let array = cadena.split(" ");
+        let mayus;
+        array.forEach(element => {
+            mayus = element.charAt(0);
+            cadenaMayus = cadenaMayus + mayus.toUpperCase() + element.substring(1) + " ";
+        });
+        
+        document.write("<p>", `${cadena}`, "</p>");
+        document.write("<p>", `${cadenaMayus}`, "</p>");
+    </script>
+</body>
+
+</html>
