@@ -6,7 +6,7 @@ lista4 = [1, 2, 3, 4, 54, 6, 54, 654, 4355643, 65432231, 43125646];
 lista2 = ["Pepe", "Juan", "Maria"];
 
 
-//Concat de arrays
+//Concat de arrays esto desde github
 let lista3 = lista1.concat(lista2);
 console.log("Concat de arrays\n-------");
 for (const c of lista3) {
