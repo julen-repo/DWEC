@@ -34,14 +34,14 @@
             }
 
             set color(value) {
-                this.this._color = color;
+                this._color = color;
             }
             get color() {
-                return this.this._color;
+                return this._color;
             }
         }
         class camion extends vehiculo {
-            
+
             constructor(pasajeros, tara) {
                 super(pasajeros);
                 this._tara = tara;
@@ -55,18 +55,73 @@
             }
 
             set tara(value) {
-                this.this._tara = tara;
+                this._tara = tara;
             }
             get tara() {
-                return this.this._tara;
+                return this._tara;
             }
         }
+
         const hora = new Date();
         function capturaReloj() {
             const hora = new Date();
             return "Hora: " + hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds();
         }
-        console.log(capturaReloj());
+
+        let arrayVehi = [];
+        function generarVehiculos() {
+            arrayVehi = [];
+
+            let randomTurismo = Math.floor(Math.random() * 5) + 1;
+            let randomPasTur = Math.floor(Math.random() * 8) + 1;
+            let randomColor = Math.floor(Math.random() * 4);
+            let colores = ["azul", "rojo", "verde"];
+
+            for (let index = 0; index < randomTurismo; index++) {
+                let randomPasTur = Math.floor(Math.random() * 8) + 1;
+                let randomColor = Math.floor(Math.random() * 4);
+                arrayVehi.push(new turismo(randomPasTur, colores[randomColor]));
+            }
+
+            let randomCamion = Math.floor(Math.random() * 5) + 1;
+
+
+            for (let index = 0; index < randomCamion; index++) {
+                let randomPasCam = Math.floor(Math.random() * 8) + 1;
+                let randomTara = Math.floor(Math.random() * 10000);
+                arrayVehi.push(new turismo(randomPasCam, randomTara));
+            }
+        }
+        function mostrarVehiculos() {
+            let tabla = `<table border="1">`;
+            arrayVehi.forEach(element => {
+                if (element instanceof turismo) {
+                    tabla += `<tr>
+                        <td>${capturaReloj()}</td>
+                        <td>Tipo: Turismo</td>
+                        <td>Pasajeros: ${element.pasajeros}</td>
+                        <td>Color: ${element.color}</td>
+                      </tr>`;
+                } else if (element instanceof camion) {
+                    tabla += `<tr>
+                        <td>${capturaReloj()}</td>
+                        <td>Tipo: Camion</td>
+                        <td>Pasajeros: ${element.pasajeros}</td>
+                        <td>Tara: ${element.tara}</td>
+                      </tr>`;
+                }
+            });
+            tabla += `</table>`;
+            document.write(tabla);
+        }
+
+        setInterval(function(){
+            for (let index = 0; index < 10; index++) {
+                generarVehiculos();
+                mostrarVehiculos();
+            }
+        },2000)
+
     </script>
 </body>
 
