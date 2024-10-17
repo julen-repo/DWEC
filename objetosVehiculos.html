@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class vehiculo {
+            constructor(pasajeros) {
+                this._pasajeros = pasajeros;
+            }
+            set pasajeros(value) {
+                this._pasajeros = pasajeros;
+            }
+            get pasajeros() {
+                return this._pasajeros;
+            }
+
+        }
+        class turismo extends vehiculo {
+            constructor(pasajeros, color) {
+                super(pasajeros);
+                this._color = color;
+            }
+            set pasajeros(value) {
+                this._pasajeros = pasajeros;
+            }
+            get pasajeros() {
+                return this._pasajeros;
+            }
+
+            set color(value) {
+                this.this._color = color;
+            }
+            get color() {
+                return this.this._color;
+            }
+        }
+        class camion extends vehiculo {
+            
+            constructor(pasajeros, tara) {
+                super(pasajeros);
+                this._tara = tara;
+            }
+
+            set pasajeros(value) {
+                this._pasajeros = pasajeros;
+            }
+            get pasajeros() {
+                return this._pasajeros;
+            }
+
+            set tara(value) {
+                this.this._tara = tara;
+            }
+            get tara() {
+                return this.this._tara;
+            }
+        }
+        const hora = new Date();
+        function capturaReloj() {
+            const hora = new Date();
+            return "Hora: " + hora.getHours() + ":" + hora.getMinutes() + ":" + hora.getSeconds();
+        }
+        console.log(capturaReloj());
+    </script>
+</body>
+
+</html>
