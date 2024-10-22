@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Rio {
+            constructor(nombre, cuenca) {
+                this._nombre = nombre;
+                this._cuenca = cuenca;
+                this._caudal = 0;
+                this._poblacion = [];
+                this.mostrarMensaje(`<p>nuevo rio ${this.nombre}, de la cuenca: ${this.cuenca}.</p>`)
+
+            }
+            mostrarMensaje(mensaje) {
+                document.write(mensaje);
+            }
+            set nombre(value) {
+                this._nombre = nombre;
+            }
+            get nombre() {
+                return this._nombre;
+            }
+
+            set cuenca(value) {
+                this._cuenca = cuenca;
+            }
+            get cuenca() {
+                return this._cuenca;
+            }
+
+            set caudal(value) {
+                this._caudal = value;
+            }
+            get caudal() {
+                return this._caudal;
+            }
+
+            set poblacion(value) {
+                this._poblacion = value;
+            }
+            get poblacion() {
+                return this._poblacion;
+            }
+        }
+
+        Rio.prototype.agregarPoblacion = function (pob) {
+            this.poblacion.push(pob);
+            document.write("<p>" + "El rio " + this.nombre + " pasa por " + pob + "</p>");
+        };
+        Rio.prototype.eliminarPoblacion = function (del) {
+            let eliminar = this.poblacion.indexOf(del);
+
+            if (eliminar !== -1) {
+                this.poblacion.splice(eliminar, 1);  // Elimina el valor en la posición 'indice'
+                document.write("<p>" + "El rio " + this.nombre + " no pasa por " + del + "</p>");
+            }
+        };
+        Rio.prototype.modificarCaudalmedio = function (num) {
+            this.caudal = num;
+        };
+        Rio.prototype.imprimeNombre = function () {
+            document.write("<p>" + this.nombre + "</p>");
+        };
+        Rio.prototype.imprimeCuenca = function () {
+            document.write("<p>" + this.cuenca + "</p>");
+        };
+        Rio.prototype.imprimeCaudal = function () {
+            if (this.caudal == 0) {
+                document.write("<p>No consta</p>");
+            } else {
+                document.write("<p>" + this.caudal + "</p>");
+            }
+        };
+        Rio.prototype.imprimePoblaciones = function () {
+            document.write("<p>Poblaciones: </p>");
+            if (this.poblacion.length == 0) {
+                document.write("<p>No consta</p>");
+            } else {
+                this.poblacion.forEach(element => {
+                    document.write("<p>" + element + "</p>");
+                });
+            }
+        };
+        Rio.prototype.imprimeRio = function () {
+            document.write("<p>Nombre: " + this.nombre + "</p>");
+            document.write("<p>Cuenca: " + this.cuenca + "</p>");
+            if (this.caudal == 0) {
+                document.write("<p>No consta caudal</p>");
+            } else {
+                document.write("<p>Caudal: " + this.caudal + "</p>");
+            }
+
+            if (this.poblacion.length == 0) {
+                document.write("<p>No consta poblaciones</p>");
+            } else {
+                document.write("<p>Poblaciones: </p>");
+                this.poblacion.forEach(element => {
+                    document.write("<p>" + element + "</p>");
+                });
+            }
+        };
+
+        let rioA = new Rio("Duero", "cuenca Atlantica");
+        let rioB = new Rio("Ebro", "cuenca Mediterranea");
+
+        rioA.agregarPoblacion("Valladolid");
+        rioA.eliminarPoblacion("Valladolid");
+        rioA.imprimeCaudal();
+        rioA.imprimeCuenca();
+        rioA.imprimeNombre();
+        rioA.imprimePoblaciones();
+        rioA.modificarCaudalmedio(34);
+        rioA.imprimeRio();
+
+        rioB.agregarPoblacion("Miranda de Ebro");
+        rioB.agregarPoblacion("Tortosa");
+        rioB.agregarPoblacion("Valladolid");
+        rioB.imprimePoblaciones();
+        rioB.eliminarPoblacion("Valladolid");
+        rioB.imprimePoblaciones();
+
+
+    </script>
+</body>
+
+</html>

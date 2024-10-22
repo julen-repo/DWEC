@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open objetosVehiculos.html",
-            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\objetosVehiculos.html"
+            "name": "Open rios.html",
+            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\rios.html"
         }
     ]
 }
