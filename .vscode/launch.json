@@ -5,10 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "type": "node",
             "request": "launch",
-            "name": "Open rios.html",
-            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\rios.html"
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\desestructurar.js"
         }
     ]
 }
