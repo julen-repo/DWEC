@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="principal" style="border:solid 1px black;
+        height:300px; width:700px; margin: 0 auto; background:orange;">
+    </div>
+    <script>
+        const principal=document.getElementById("principal");
+        let contenidos = [
+            "Tomate una sidra El manzanal",
+            "Pepillos Perico Penico Perez",
+            "Pepedona tu mejor supermercado",
+            "Ofertón de jabón: 10 por 2",
+            "La gente feliz toma loca-loca",
+            "Tu mejor coche es un haiga"
+        ];
+
+        function intervaloRandom(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        };
+        function crearDiv() {
+            const rgb = {
+                r: intervaloRandom(1, 255),
+                g: intervaloRandom(1, 255),
+                b: intervaloRandom(1, 255)
+            };
+            const anchoAlto = {
+                an: intervaloRandom(0, 700),
+                al: intervaloRandom(0, 300)
+            };
+            const div = document.createElement('DIV');
+            div.setAttribute("style", `background-color:rgb(${Object.values(rgb).join(',')}) `);
+            principal.append(div);
+        }
+        for (let index = 0; index < 6; index++) {
+            crearDiv();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="id0">Esto es un contenedor
+        <a href="http://uno.com">uno</a>
+        <div id="id1">Esto es un bloque
+            <a href="http://dos.com">dos</a>
+            <input name="prueba1" />
+            <input name="prueba2" />
+        </div>
+    </div>
+    <script>
+        let divs = document.querySelectorAll("div");
+        console.log("\nTodos los divs\n");
+        divs.forEach(element => {
+            console.log(`${element.id}`);
+        });
+
+        let as = document.querySelectorAll("a");
+        let get = document.getElementById("dfsa");
+        console.log("\nTodos los enlaces\n");
+        as.forEach(element => {
+            console.log(`${element.href}`);
+        });
+
+        function verNodos(nodo) {
+            // Solo procesa si el nodo es de tipo ELEMENT_NODE
+            if (nodo.nodeType === Node.ELEMENT_NODE) {
+                const atributos = {};
+                for (let attr of nodo.attributes) {
+                    atributos[attr.name] = attr.value;
+                }
+                console.log("Atributos del nodo:", atributos);
+            }else{
+                console.log("Tipo texto");
+            }
+
+            // Recorrer cada hijo y aplicar recursividad
+            nodo.childNodes.forEach(child => {
+                verNodos(child);
+            });
+        }
+
+        const n = document.getElementById("id0");
+        verNodos(n);
+    </script>
+</body>
+
+</html>

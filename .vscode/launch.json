@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open ej2Nodos.html",
-            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\ej2Nodos.html"
+            "name": "Open ej3Nodos.html",
+            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\ej3Nodos.html"
         }
     ]
 }
