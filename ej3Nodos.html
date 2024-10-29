@@ -12,7 +12,7 @@
         height:300px; width:700px; margin: 0 auto; background:orange;">
     </div>
     <script>
-        const principal=document.getElementById("principal");
+        const principal = document.getElementById("principal");
         let contenidos = [
             "Tomate una sidra El manzanal",
             "Pepillos Perico Penico Perez",
@@ -25,23 +25,31 @@
         function intervaloRandom(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
         };
-        function crearDiv() {
+        function crearDiv(dato) {
             const rgb = {
                 r: intervaloRandom(1, 255),
                 g: intervaloRandom(1, 255),
                 b: intervaloRandom(1, 255)
             };
-            const anchoAlto = {
-                an: intervaloRandom(0, 700),
-                al: intervaloRandom(0, 300)
-            };
+            const an = intervaloRandom(0, 700);
+            const al = intervaloRandom(0, 300);
+            
             const div = document.createElement('DIV');
-            div.setAttribute("style", `background-color:rgb(${Object.values(rgb).join(',')}) `);
+            div.style = `background-color:rgb(${Object.values(rgb).join(',')}); position:relative; width:100px; left:${an}; up:${al};`;
+            div.innerHTML = dato;
+
             principal.append(div);
         }
-        for (let index = 0; index < 6; index++) {
-            crearDiv();
+        function crear6() {
+            const eliminar = document.getElementById("principal");
+            eliminar.childNodes.forEach(element => {
+                element.remove();
+            });
+            contenidos.forEach(element => {
+                crearDiv(element);
+            });
         }
+        setInterval(crear6, 2000);
     </script>
 </body>
 
