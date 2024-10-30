@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+    <h2></h2>
+    <p></p>
+    <h2></h2>
+    <p></p>
+    <h2></h2>
+    <p></p>
+    <h2></h2>
+    <p></p>
+    <h2></h2>
+    <p></p>
+    <h2></h2>
+    <p></p>
+    <h2></h2>
+    <a></a>
+    <button onclick="mostrarMayor()">Mostrar mayor</button>
+    <script>
+        function mostrarMayor() {
+            const todos = document.querySelectorAll("*");
+
+            const etiquetas = new Set();
+
+            todos.forEach(elemento => etiquetas.add(elemento.tagName));
+
+            const etiquetasArray = Array.from(etiquetas);
+
+            let aux = 0;
+            let mayor = "";
+
+            etiquetasArray.forEach(element => {
+                const tag = document.querySelectorAll(element);
+                if (tag.length > aux) {
+                    aux = tag.length;
+                    mayor = element[0];
+                }
+            });
+            console.log(etiquetasArray);
+            alert(mayor + ": " + aux);
+        }
+    </script>
+</body>
+
+</html>
