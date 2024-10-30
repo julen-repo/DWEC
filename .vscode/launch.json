@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open masVeces.html",
-            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\masVeces.html"
+            "name": "Open clickParrafo.html",
+            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\clickParrafo.html"
         }
     ]
 }

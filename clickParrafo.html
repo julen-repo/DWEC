@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p onclick="cambiarParrafo(this)">hola1</p>
+    <p onclick="cambiarParrafo(this)">hola2</p>
+    <p onclick="cambiarParrafo(this)">hola3</p>
+    <p onclick="cambiarParrafo(this)">hola4</p>
+    <p onclick="cambiarParrafo(this)">hola5</p>
+    <p onclick="cambiarParrafo(this)">hola6</p>
+    <p onclick="cambiarParrafo(this)">hola7</p>
+    <p onclick="cambiarParrafo(this)">hola8</p>
+    <p onclick="cambiarParrafo(this)">hola9</p>
+    <p onclick="cambiarParrafo(this)">hola10</p>
+    <script>
+        function cambiarParrafo(parr) {
+            const parrAnterior = parr.previousElementSibling;
+            const parrSiguiente = parr.nextElementSibling;
+
+            if(!(parrAnterior===null)){
+                parrAnterior.innerHTML= parr.innerHTML;
+            }
+            if(!(parrSiguiente===null)){
+                parrSiguiente.innerHTML= parr.innerHTML;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
