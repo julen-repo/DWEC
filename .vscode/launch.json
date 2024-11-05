@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open clickParrafo.html",
-            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\clickParrafo.html"
+            "name": "Open tablaEliminar.html",
+            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\tablaEliminar.html"
         }
     ]
 }

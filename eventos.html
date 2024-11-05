@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vw;
+            width: 100vw;
+        }
+    </style>
+</head>
+
+<body onmousemove="relog(event)" onclick="asterisco(event)">
+    <img id="relog" class="imagen"
+        src="https://static.vecteezy.com/system/resources/thumbnails/036/395/901/small_2x/ai-generated-alarm-clock-on-transparent-background-ai-generated-png.png"
+        style="position: fixed; right: 0px; bottom: 0px;">
+    <script>
+
+        function asterisco(ei) {
+            let raton_x = ei.clientX;
+            let raton_y = ei.clientY;
+            const nuevoTexto = document.createElement("span");
+
+            nuevoTexto.id = "asterisco";
+            nuevoTexto.textContent = "*";
+
+            nuevoTexto.style.position = "fixed";
+            nuevoTexto.style.fontSize = "24px";
+            nuevoTexto.style.color = "black";
+
+
+            nuevoTexto.style.left = `${raton_x - nuevoTexto.offsetWidth / 2}px`;
+            nuevoTexto.style.top = `${raton_y - nuevoTexto.offsetHeight / 2}px`;
+
+            document.body.appendChild(nuevoTexto);
+        }
+        function relog(e) {
+            let raton_x = e.clientX;
+            let raton_y = e.clientY;
+            let reloj = document.getElementById("relog");
+
+            reloj.style.left = `${raton_x - reloj.offsetWidth / 2 + 200}px`;
+            reloj.style.top = `${raton_y - reloj.offsetHeight / 2 + 200}px`;
+
+            console.log(raton_x + "     " + raton_y);
+        }
+    </script>
+</body>
+
+</html>
