@@ -38,12 +38,10 @@
         let arrayLetras = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r"];
         for (let index = 0; index < 6; index++) {
             let fila = document.createElement("tr");
-            fila.setAttribute("id", `fila-${index}`);
             document.getElementById("tabla").appendChild(fila);
 
             for (let index2 = 0; index2 < 3; index2++) {
                 let celda = document.createElement("th");
-                celda.setAttribute("id", `celda-${index}-${index2}`);
                 celda.innerHTML = arrayLetras[0];
                 celda.addEventListener("click", eliminar, false);
                 arrayLetras.shift();

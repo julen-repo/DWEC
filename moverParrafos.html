@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="body">
+    <!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de intercambio de texto y color</title>
+    </head>
+
+    <body>
+        <div id="contenedor"></div>
+        <script>
+            function cambiar() {
+                let primero = this.parentNode.firstChild;
+                let primeroAtrib = primero.style.color;
+                let primeroTexto = primero.innerHTML;
+
+                let selec = this;
+                let selecAtrib = selec.style.color;
+                let selecTexto = selec.innerHTML;
+
+                selec.style.color = primeroAtrib;
+                selec.innerHTML = primeroTexto;
+
+                primero.style.color = selecAtrib;
+                primero.innerHTML = selecTexto;
+            }
+
+            function colorAleatorio() {
+                const letras = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letras[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            let arrayParrafo = ["Parrafo1", "Parrafo2", "Parrafo3", "Parrafo4", "Parrafo5", "Parrafo6"];
+            let contenedor = document.getElementById("contenedor");
+
+            for (let index = 0; index < arrayParrafo.length; index++) {
+                let parrafo = document.createElement("p");
+                parrafo.innerHTML = arrayParrafo[index];
+                parrafo.addEventListener("click", cambiar, false);
+                parrafo.style.color = colorAleatorio();
+                contenedor.appendChild(parrafo);
+            }
+        </script>
+    </body>
+
+    </html>
+
+</body>
+
+</html>
