@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="par">Parrafo 1</p>
+    <script>
+        document.getElementById("par").addEventListener("click",function(e){
+            alert("evento");
+            const nuevoElemento = this.cloneNode(true);
+            this.parentNode.replaceChild(nuevoElemento, this);
+        });
+    </script>
+</body>
+</html>
