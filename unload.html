@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beforeunload Example</title>
+</head>
+<body>
+    <h1>Página con advertencia de salida</h1>
+    <p>Escribe algo en el campo de texto o haz clic en el botón para activar la advertencia.</p>
+
+    <input type="text" id="textInput" placeholder="Escribe algo aquí">
+    <button id="saveButton">Guardar cambios</button>
+    
+    <script>
+        let changesMade = false;
+
+        document.getElementById("textInput").addEventListener("input", function () {
+            changesMade = true;
+        });
+
+        document.getElementById("saveButton").addEventListener("click", function () {
+            changesMade = true;
+        });
+
+        window.addEventListener("beforeunload", function (event) {
+            if (changesMade) {
+                event.preventDefault();
+                event.returnValue = '';
+            }
+        });
+    </script>
+</body>
+</html>

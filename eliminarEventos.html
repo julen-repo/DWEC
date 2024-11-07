@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="primero">fdasfsafsdfsdafasd</p>
+    <button onclick="eliminar()">Eliminar</button>
+    <script>
+        const elemento = elemento;
+        elemento.addEventListener("click", a());
+        elemento.addEventListener("click", function () { alert("con funcion") });
+        elemento.addEventListener("click", () => alert("funcion flecha"));
+        
+        function eliminar() {
+            const nuevoElemento = elemento.cloneNode(true);
+            elemento.parentNode.replaceChild(nuevoElemento, elemento);
+        }
+
+    </script>
+</body>
+
+</html>
