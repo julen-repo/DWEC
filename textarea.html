@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea id="textArea" maxlength="10"></textarea>
+    <script>
+        document.getElementById("textArea").addEventListener("keydown", function(e) {
+            console.log(document.getElementById("textArea").value);
+        });
+    </script>
+</body>
+
+</html>
