@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open unicaVez.html",
-            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\unicaVez.html"
+            "name": "Open form2.html",
+            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\form2.html"
         }
     ]
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form" action="#" method="post">
+        <label>Nombre<input type="text" name="nombre" minlength="20" pattern="^[A-Za-z]{20}$" required></label>
+        <label>NIF<input type="text" name="nif"  pattern="^\d{7,8}[a-zA-Z]$" required></label>
+        <label>Edad<input type="number" name="edad"  min="18" max="65" required></label>
+        <label>Fecha de alta<input type="date" name="alta" max="2024-11-19"  required></label>
+        <label>Email<input type="email" name="email" pattern="" required></label>
+    </form>
+</body>
+
+</html>

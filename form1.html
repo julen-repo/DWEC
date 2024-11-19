@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="cliente" action="#" method="GET">
+        <label>Nombre:<input name="nombre" value="Pedro" type="text"></label>
+        <label>Edad:<input name="edad" value="68" type="text"></label>
+        <label>Texto:<textarea name="txt">Escribe aqui</textarea></label>
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
+    <form id="radio" action="#" method="GET">
+        <label><input type="radio" name="pregunta" value="si" checked>Afimativo</label>
+        <label><input type="radio" name="pregunta" value="no">Negativo</label>
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
+    <form id="checkbox" action="#" method="GET">
+        <label><input type="checkbox" name="color" value="rojo" checked>Azul</label>
+        <label><input type="checkbox" name="color" value="azul">Rojo</label>
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
+    <form id="select" action="#" method="GET">
+        <select name="colores">
+            <option value="" selected>Selecciona un color</option>
+            <option value="amarillo">Amarillo</option>
+            <option value="marron">Marron</option>
+        </select>
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
+    <script>
+        const fo1 = document.querySelector("#cliente");
+        const fo2 = document.querySelector("#radio");
+        const fo3 = document.querySelector("#checkbox");
+        const fo4 = document.querySelector("#select");
+        fo1.addEventListener('submit', function () {
+            let res = `Nombre: ${fo1[0].value} \nEdad: ${fo1[1].value} \nTexto: ${fo1[2].value}`;
+            alert(res);
+        });
+        fo2.addEventListener('submit', function () {
+            let rn1 = fo2["pregunta"];
+            alert(rn1.value);
+            console.log(`${rn1[0].value}->${rn1[0].checked}`);
+            console.log(`${rn1[1].value}->${rn1[1].checked}`);
+        });
+        fo3.addEventListener('submit', function () {
+            let ch1 = fo3["color"];
+            console.log(`${ch1[0].value}->${ch1[0].checked}`);
+            console.log(`${ch1[1].value}->${ch1[1].checked}`);
+        });
+        fo4.addEventListener('submit', function () {
+            let selec = fo4["colores"];
+            console.log(selec.selectedIndex);
+            console.log(`${selec[0].value}->${selec[0].selected}`);
+            console.log(`${selec[1].value}->${selec[1].selected}`);
+            console.log(`${selec[2].value}->${selec[2].selected}`);
+        });
+    </script>
+</body>
+
+</html>
