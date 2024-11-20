@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="formulario">
+        <h1>Selecciona por orden la preferencia</h1>
+        <select>
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <label>Paris</label><br>
+        <select>
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <label>Londres</label><br>
+        <select>
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <label>Roma</label><br>
+        <select>
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <label>Madrid</label><br>
+        <select>
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <label>Berlin</label><br>
+    </form>
+    <script>
+        let selec = document.getElementsByTagName("select");
+        selec.forEach(element => {
+            element.addEventListener('change', function (e) {
+                selec.forEach(element2 => {
+                    if(element2[element2.selectedIndex].value==element[element.selectedIndex].value){
+                        //meter error aqui
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

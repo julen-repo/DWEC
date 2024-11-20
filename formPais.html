@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="formulario" action="#" method="post">
+        <label>Nacionalidad</label>
+        <select name="pais">
+            <option value="es">española</option>
+            <option value="it">italiana</option>
+        </select>
+        <input type="text" name="nueva">
+        <button id="ins">Insertar nacionalidad</button>
+    </form>
+    <script>
+        let fo = document.querySelector("#formulario");
+        let ins = document.querySelector("#ins");
+        ins.addEventListener('click', function (e) {
+            let selec = fo["pais"];
+            let text = fo["nueva"];
+            if (!(text.value.length < 2)) {
+                const option = document.createElement('OPTION');
+                option.setAttribute("name", text.value.charAt(0) + text.value.charAt(1));
+                option.innerHTML = text.value;
+                fo["pais"].appendChild(option);
+            }
+        });
+    </script>
+</body>
+
+</html>
