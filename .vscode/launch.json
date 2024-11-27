@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open formPais.html",
-            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\formPais.html"
+            "name": "Open juegoJs.html",
+            "file": "c:\\Users\\admin\\Desktop\\Practicas\\Repositorio VS\\juegoJs.html"
         }
     ]
 }
