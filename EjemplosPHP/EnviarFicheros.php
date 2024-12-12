@@ -14,6 +14,7 @@
     <form action="" method="POST" enctype="multipart/form-data">
         <input type="file" id="mifichero" name="mifichero">
         <div id="ajax"></div>
+        <input type="submit" value="Enviar">
     </form>
 
     <script>
@@ -33,6 +34,10 @@
             <?php
             subido();
             ?>
+        });
+        document.forms[0].addEventListener("submit", function(e) {
+            e.preventDefault();
+            xhr.open("POST","http://localhost:8080/");
         });
     </script>
 </body>
