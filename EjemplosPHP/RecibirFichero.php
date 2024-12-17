@@ -1,15 +1,24 @@
 <?php
-function subido()
-{
-    $fichero_subido = '.\\' . basename($_FILES['mifichero']['name']);
-    if (move_uploaded_file($_FILES['mifichero']['name'], $fichero_subido)) {
-        echo basename($fichero_subido);
+header('Content-Type: application/json');
+
+if ($_FILES['mifichero']['error'] === UPLOAD_ERR_OK) {
+    $uploadDir = 'uploads/';
+    $uploadFile = $uploadDir . basename($_FILES['mifichero']['name']);
+
+    if (move_uploaded_file($_FILES['mifichero']['tmp_name'], $uploadFile)) {
+        echo json_encode([
+            'status' => 'success',
+            'url' => $uploadFile,
+        ]);
     } else {
-        echo "error";
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'No se pudo mover el archivo.',
+        ]);
     }
-}
-function pillar_fichero()
-{
-    $fichero_subido = $_FILES['mifichero']['name'];
-    echo $fichero_subido;
+} else {
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Error en la subida del archivo.',
+    ]);
 }

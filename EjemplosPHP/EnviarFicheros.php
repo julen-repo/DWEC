@@ -4,40 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Subida de Ficheros</title>
 </head>
 
 <body>
-    <?php
-    require_once("RecibirFichero.php");
-    ?>
-    <form action="" method="POST" enctype="multipart/form-data">
-        <input type="file" id="mifichero" name="mifichero">
-        <div id="ajax"></div>
+    <form id="uploadForm" method="POST" enctype="multipart/form-data">
+        <input type="file" id="mifichero" name="mifichero" required>
         <input type="submit" value="Enviar">
     </form>
+    <div id="ajax"></div>
 
     <script>
-        let xhr = new XMLHttpRequest();
-        xhr.addEventListener("load", function(e) {
-            if (xhr.status == 200) {
-                document.getElementById("ajax").innerHTML = xhr.responseText;
-                let imagen = document.createElement("img");
-                imagen.setAttribute("src", <?php pillar_fichero()?>);
-                document.getElementsByTagName("body").append(imagen);
-            } else {
-                alert("Error ajax: " + xhr.status + xhr.statusText);
-            }
-        });
-        let archivo = document.getElementsByName("mifichero");
-        archivo.addEventListener("click", function(e) {
-            <?php
-            subido();
-            ?>
-        });
-        document.forms[0].addEventListener("submit", function(e) {
+        document.getElementById("uploadForm").addEventListener("submit", function(e) {
             e.preventDefault();
-            xhr.open("POST","http://localhost:8080/");
+
+            const formData = new FormData();
+            const archivo = document.getElementById("mifichero").files[0];
+            formData.append("mifichero", archivo);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:8080/RecibirFichero.php", true);
+
+            xhr.onload = function() {
+                try {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+
+                        if (response.status === "success") {
+                            document.getElementById("ajax").innerHTML = "<p>Archivo subido con éxito</p>";
+
+                            const imagen = document.createElement("img");
+                            imagen.src = response.url;
+                            document.body.append(imagen);
+                        } else {
+                            document.getElementById("ajax").innerHTML = `<p>Error: ${response.message}</p>`;
+                        }
+                    } else {
+                        alert("Error AJAX: " + xhr.status + " " + xhr.statusText);
+                    }
+                } catch (err) {
+                    alert("Error al procesar la respuesta del servidor: " + err.message);
+                    console.error("Respuesta no válida:", xhr.responseText);
+                }
+            };
+
+            xhr.send(formData);
         });
     </script>
 </body>
