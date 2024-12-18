@@ -19,18 +19,8 @@
         </select>
     </form>
     <script>
-        let array = ["hola", "adios", "fdasf", "fdfa"];
         let select1 = document.getElementById("provincias");
         let select2 = document.getElementById("localidades");
-
-        document.addEventListener("DOMContentLoaded", function() {
-            //for de la api
-            let local = document.createElement("option");
-            local.value = element.toLowerCase();
-            local.innerHTML = element;
-            select2.append(local);
-
-        });
 
         function rellenar() {
             let valor = select1.value; //para accceso a la base de datos
@@ -45,7 +35,6 @@
             });
         }
         document.getElementById("provincias").addEventListener("change", function(e) {
-
             let promise = new Promise(function(resolve, reject) {
                 resolve(rellenar());
                 reject(new Error("saafdsafsdfsd"));
