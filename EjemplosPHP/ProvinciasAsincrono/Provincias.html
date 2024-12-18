@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <select id="provincias" name="provincias">
+        </select>
+        <select id="localidades">
+
+        </select>
+    </form>
+    <script>
+
+        let select1 = document.getElementById("provincias");
+        let select2 = document.getElementById("localidades");
+        const xhr = new XMLHttpRequest();
+        const xhr1 = new XMLHttpRequest();
+
+        window.onload = function () {
+            xhr.open("POST", "http://localhost:8080/ProvinciasAsincrono/Provincias.php?nocache=" + Math.random(), true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send();
+        };
+        document.getElementById("provincias").addEventListener("change", function (e) {
+            const formData = new FormData();
+            formData.append("comunidad", document.getElementById("provincias").value);
+            alert(document.getElementById("provincias").value);
+            xhr1.open("POST", "http://localhost:8080/ProvinciasAsincrono/Localidades.php?nocache=" + Math.random(), true);
+            xhr1.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr1.send(formData);
+            //xhr1.send("comunidad="+document.getElementById("provincias").value);
+        });
+        xhr.onload = function () {
+            try {
+                let select = document.getElementById("provincias");
+                while (select.options.length > 0) {
+                    select.remove(0);
+                }
+                if (xhr.status === 200) {
+                    let array = JSON.parse(xhr.responseText);
+                    array.forEach(element => {
+                        let local = document.createElement("option");
+                        local.value = element.id;
+                        local.innerHTML = element.valor;
+                        select.append(local);
+                    });
+                } else {
+                    alert("Error AJAX: " + xhr.status + " " + xhr.statusText);
+                }
+            } catch (err) {
+                alert("Error al procesar la respuesta del servidor: " + err.message);
+                console.error("Respuesta no válida:", xhr.responseText);
+            }
+        };
+        xhr1.onload = function () {
+            try {
+                let select = document.getElementById("localidades");
+                while (select.options.length > 0) {
+                    select.remove(0);
+                }
+                if (xhr1.status === 200) {
+                    let array = JSON.parse(xhr1.responseText);
+                    array.forEach(element => {
+                        let local = document.createElement("option");
+                        local.value = element.id;
+                        local.innerHTML = element.valor;
+                        select.append(local);
+                    });
+                } else {
+                    alert("Error AJAX: " + xhr1.status + " " + xhr1.statusText);
+                }
+            } catch (err) {
+                alert("Error al procesar la respuesta del servidor: " + err.message);
+                console.error("Respuesta no válida:", xhr1.responseText);
+            }
+        };
+    </script>
+</body>
+
+</html>
