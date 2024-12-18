@@ -28,14 +28,17 @@
             xhr.send();
         };
         document.getElementById("provincias").addEventListener("change", function (e) {
+            const comunidad = document.getElementById("provincias").value;
+            if (!comunidad) return; // Si no hay selección, no hacer nada
+
             const formData = new FormData();
-            formData.append("comunidad", document.getElementById("provincias").value);
-            alert(document.getElementById("provincias").value);
+            formData.append('comunidad', comunidad); // Asegúrate de que el valor se envíe aquí
+
             xhr1.open("POST", "http://localhost:8080/ProvinciasAsincrono/Localidades.php?nocache=" + Math.random(), true);
             xhr1.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr1.send(formData);
-            //xhr1.send("comunidad="+document.getElementById("provincias").value);
         });
+
         xhr.onload = function () {
             try {
                 let select = document.getElementById("provincias");
