@@ -35,10 +35,8 @@
             formData.append('comunidad', comunidad); // Asegúrate de que el valor se envíe aquí
 
             xhr1.open("POST", "http://localhost:8080/ProvinciasAsincrono/Localidades.php?nocache=" + Math.random(), true);
-            xhr1.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr1.send(formData);
         });
-
         xhr.onload = function () {
             try {
                 let select = document.getElementById("provincias");
