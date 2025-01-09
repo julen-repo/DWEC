@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Datos para grafico</legend>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <br>
+            <label for="valor">Valor:</label>
+            <input type="range" id="valor" name="valor" min="0" max="100" value="50">
+            <br>
+            <label for="color">Elige un color:</label>
+            <input type="color" id="color" name="color">
+            <input type="button" name="enviar" id="enviar" value="Añadir datos" />
+        </fieldset>
+    </form>
+    <script>
+        document.getElementById("enviar").addEventListener("click", (e)=>{
+            let nombre= document.getElementById("nombre").value;
+            let valor = document.getElementById("valor").value;
+            let color = document.getElementById("color").value;
+            sessionStorage.setItem(nombre,`{valor:${valor},color:${color}}`);
+        });
+    </script>
+</body>
+
+</html>
