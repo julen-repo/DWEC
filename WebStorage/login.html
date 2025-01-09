@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="entrar">Log in</button>
+    <button id="incrementar">Incrementar</button>
+    <button id="decrementar">Decrementar</button>
+    <button id="salir">Log out</button>
+    <div id="datos">
+        <div id="persona"></div>
+        <div id="contador"></div>
+    </div>
+    <script>
+        sessionStorage.setItem("Contador", 0);
+        if (localStorage.getItem("Nombre")) {
+                document.getElementById("persona").innerHTML = "Bienvenida de nuevo " + localStorage.getItem("Nombre");
+                document.getElementById("contador").innerHTML = "El contador esta en " + sessionStorage.getItem("Contador");
+        }
+        document.getElementById("entrar").addEventListener("click", (e) => {
+            if (!localStorage.getItem("Nombre")) {
+                let nombre = prompt("Dime tu nombre");
+                localStorage.setItem("Nombre", nombre);
+                document.getElementById("persona").innerHTML = "Bienvenida " + nombre;
+                document.getElementById("contador").innerHTML = "El contador esta en " + sessionStorage.getItem("Contador");
+            }
+        });
+
+        document.getElementById("salir").addEventListener("click", (e) => {
+            localStorage.removeItem("Nombre");
+            document.getElementById("persona").innerHTML = "";
+            document.getElementById("contador").innerHTML = "";
+        });
+
+        document.getElementById("incrementar").addEventListener("click", (e) => {
+            sessionStorage.setItem("Contador",parseInt(sessionStorage.getItem("Contador"))+1);
+            document.getElementById("contador").innerHTML = "El contador esta en " + sessionStorage.getItem("Contador");
+        });
+
+        document.getElementById("decrementar").addEventListener("click", (e) => {
+            sessionStorage.setItem("Contador",parseInt(sessionStorage.getItem("Contador"))-1);
+            document.getElementById("contador").innerHTML = "El contador esta en " + sessionStorage.getItem("Contador");
+        });
+    </script>
+</body>
+
+</html>
