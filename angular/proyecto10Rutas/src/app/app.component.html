@@ -1,0 +1,15 @@
+@for(numero of [2,3,4,5,6,7,8,9,10];track $index) {
+  <span style="margin-right: 2rem;">
+    <a routerLink="tabla/{{numero}}">Tabla del {{numero}}</a>
+  </span>
+  }
+  <div>
+    <router-outlet />
+  </div>
+  <!-- 
+  <div style="text-align:center">
+    <a routerLink="/contacto">Contacto</a> -
+    <a routerLink="/acercade">Acerca de ...</a>
+    <router-outlet />
+  </div>
+  -->
