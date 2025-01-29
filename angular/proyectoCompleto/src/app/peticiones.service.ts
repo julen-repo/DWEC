@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Usuario } from './usuario';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PeticionesService {
 
-  constructor() { }
+  private apiUrl = 'https://api.escuelajs.co/api/v1/users';
+
+  constructor(private router: Router, private http: HttpClient) { }
 
   peticionUsuario(usuario: String) {
     const url = 'https://reqres.in/api/login';
@@ -30,11 +37,15 @@ export class PeticionesService {
       .then(data => {
         console.log('Token recibido:', data.token);
         localStorage.setItem('token', data.token);
+        this.router.navigate(['/home']);
         return data.token;
       })
       .catch(error => {
         console.error('Error:', error);
         throw error;
       });
+  }
+  peticionCartas():Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.apiUrl);
   }
 }
