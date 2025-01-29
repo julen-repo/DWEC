@@ -22,7 +22,6 @@ export class PeticionesService {
       body: JSON.stringify(data)
     })
       .then(response => {
-        console.log("aqui");
         if (!response.ok) {
           throw new Error('Error en la autenticación');
         }
@@ -31,7 +30,11 @@ export class PeticionesService {
       .then(data => {
         console.log('Token recibido:', data.token);
         localStorage.setItem('token', data.token);
+        return data;
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        console.error('Error:', error);
+        throw error;
+      });
   }
 }
