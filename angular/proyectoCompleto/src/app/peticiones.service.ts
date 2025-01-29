@@ -30,7 +30,7 @@ export class PeticionesService {
       .then(data => {
         console.log('Token recibido:', data.token);
         localStorage.setItem('token', data.token);
-        return data;
+        return data.token;
       })
       .catch(error => {
         console.error('Error:', error);

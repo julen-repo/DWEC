@@ -16,6 +16,14 @@ export class LoginComponent {
 
   constructor(private peticion: PeticionesService, private router: Router) { }
 
+  async espera(email: String){
+    await this.peticion.peticionUsuario(email);
+    if(localStorage.getItem("token")){
+      console.log("esto va");
+      this.router.navigate(['/home']);
+    }
+  }
+
   onSubmit(event: Event): void {
     event.preventDefault();
     console.log("Botón de login presionado");
@@ -25,10 +33,7 @@ export class LoginComponent {
       return;
     }
 
+    this.espera(this.email);
 
-    console.log("Sale: "+this.peticion.peticionUsuario(this.email));
-    
-    console.log("ffdasfdas");
-    this.router.navigate(['/home']);
   }
 }
