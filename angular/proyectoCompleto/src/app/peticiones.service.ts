@@ -21,7 +21,7 @@ export class PeticionesService {
       password: "cualquiercosa"
     };
 
-    fetch(url, {
+    return fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

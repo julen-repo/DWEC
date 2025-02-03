@@ -17,7 +17,7 @@ export class LoginComponent {
   constructor(private peticion: PeticionesService, private router: Router) { }
 
   async espera(email: String){
-    await this.peticion.peticionUsuario(email);
+    console.log("aaa"+await this.peticion.peticionUsuario(email));
     if(localStorage.getItem("token")){
       console.log("esto va");
       this.router.navigate(['/home']);
