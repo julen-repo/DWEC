@@ -48,4 +48,11 @@ export class PeticionesService {
   peticionCartas():Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.apiUrl);
   }
+
+
+  private rutaLocal = '/loquesea.json';//lee en la carpeta public
+
+  peticionLocal():Observable<Usuario[]>{
+    return this.http.get<Usuario[]>(this.rutaLocal);
+  }
 }
